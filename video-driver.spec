@@ -1,14 +1,16 @@
 # SPDX-License-Identifier: GPL-2.0-only
 # Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 
-Name:           video-driver
+Name:           iris-vpu
 Version:        1.0.20
 Release:        3%{?dist}
 Summary:        DKMS package for MSM VIDC video driver (out-of-tree)
 License:        GPL-2.0-only
 URL:            https://github.com/qualcomm-linux/video-driver
 
-Source0:        https://github.com/qualcomm-linux/video-driver/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+#Source0:        https://github.com/qualcomm-linux/video-driver/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/qualcomm-linux/video-driver/archive/refs/tags/v%{version}.tar.gz#/video-driver-%{version}.tar.gz
+
 # Conflicts with the in-tree Qualcomm iris driver
 Conflicts:      qcom-iris-dkms
 
@@ -38,7 +40,7 @@ Supported platforms: hamoa, lemans, monaco, kodiak, purwa.
 # Prep — unpack the source tarball
 # ---------------------------------------------------------------
 %prep
-%autosetup -n %{name}-%{version}
+%autosetup -n video-driver-%{version}
 
 # ---------------------------------------------------------------
 # Build — nothing to compile at RPM build time.
