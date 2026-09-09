@@ -2,7 +2,7 @@
 
 Template repository for creating RPM package repositories for Qualcomm® Linux.
 
-Clone this template to create a `pkg-rpm-<component>` repo for **one** RPM
+Clone this template to create a `pkg-rpm-video-driver` repo for **one** RPM
 package. Your spec file and a small `sources` pointer go on a per-stream branch
 (`c10s`); the shipped GitHub Actions workflows build the RPM on every PR and
 publish it to Artifactory on demand. All build/release logic lives in the shared
@@ -211,3 +211,11 @@ Artifactory's YUM indexer writes the `repodata/` (with YUM Metadata Folder Depth
 | No `c10s` branch in your new repo | You created it without ticking **Include all branches**. See the recovery snippet in step 1. |
 
 See [`docs/workflows.md`](docs/workflows.md) for the full guide.
+
+---
+
+## License
+
+pkg-rpm-video-driver BSD 3-Clause License
+
+**pkg-rpm-video-driver** is licensed under **BSD 3-Clause License** See [LICENSE.txt](https://github.com/qualcomm-linux/pkg-rpm-video-driver/blob/main/LICENSE.txt) for the full license text.
