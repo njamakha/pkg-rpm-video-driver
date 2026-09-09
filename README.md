@@ -40,7 +40,7 @@ to CI until you rename it — otherwise a fresh repo's first PR would fail with
 ### 1. Rename the starter files
 
 ```bash
-git mv mypackage.spec.example <your-component>.spec
+git mv mypackage.spec.example video-driver.spec
 git mv sources.example sources
 ```
 
@@ -51,7 +51,7 @@ Set `Name:`, `Version:`, `Summary:`, `License:`, the build/install sections, and
 `sources` entry**:
 
 ```
-Source0: https://github.com/<org>/<proj>/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0: https://github.com/qualcomm-linux/video-driver/archive/refs/tags/v%{version}.tar.gz#/video-driver-%{version}.tar.gz
 ```
 
 ### 3. Record the tarball checksum
@@ -59,13 +59,13 @@ Source0: https://github.com/<org>/<proj>/archive/refs/tags/v%{version}.tar.gz#/%
 **The tarball is never committed to git.** Only its checksum is:
 
 ```bash
-sha512sum --tag <your-component>-1.0.tar.gz > sources
+sha512sum --tag video-driver-1.0.tar.gz > sources
 ```
 
 which yields a line like:
 
 ```
-SHA512 (mycomponent-1.0.tar.gz) = 3a7bd3e2360a3d29eea436fcfb7e44c735d117c...
+SHA512 (video-driver-1.0.tar.gz) = 3a7bd3e2360a3d29eea436fcfb7e44c735d117c...
 ```
 
 ### 4. Open a PR against this branch
@@ -89,8 +89,16 @@ Two edits, every time:
 1. Bump `Version:` in the spec (and the `Source0:` URL if its path changed).
 2. Recompute the checksum:
    ```bash
-   sha512sum --tag <your-component>-<newversion>.tar.gz > sources
+   sha512sum --tag video-driver-<newversion>.tar.gz > sources
    ```
 
 Commit both, open a PR, merge, then run **Release**. The first release fetches
 the new upstream tarball, verifies it, and caches it back automatically.
+
+---
+
+## License
+
+pkg-rpm-video-driver BSD 3-Clause License
+
+**pkg-rpm-video-driver** is licensed under **BSD 3-Clause License** See [LICENSE.txt](https://github.com/qualcomm-linux/pkg-rpm-video-driver/blob/main/LICENSE.txt) for the full license text.
